@@ -1,0 +1,64 @@
+TASK 0
+The algorithm has a worst-case time-complexity of O(1).
+
+There are 8 operations which do not depend on the size of the input:
+- print("First record of texts, {} texts {} at time {}".format(texts[0][0],texts[0][1],texts[0][2])): 4 operations
+- print("Last record of calls, {} calls {} at time {}, lasting {} seconds".format(calls[-1][0],calls[-1][1],calls[-1][2],calls[-1][3])): 4 operations
+
+O(8) can be simplified to O(1)
+
+TASK 1
+The algorithm has a worst-case time-complexity of O(n), where n = max(k, m)
+- The first loop (processing rows in the text dataset) is said to run k times and the second loop (processing rows in the calls dataset) is said to run m times.
+- Each loop consists of two operations, leading to O(2n) time-complexity per loop i.e., O(4n) in total
+- Printing the results (including calculating the length of the set) has time-complexity of O(3):
+    a. len(num): 1 operation
+    b. print(): 1 operation
+    c. format(): 1 operation
+- O(4n + 3) can be simplified to O(n)
+
+TASK 2
+The algorithm has a worst-case time-complexity of O(n):
+- The loop is said to run n times, and six operations occur within each loop such that O(6n), which can be simplified to 
+- There are 6 operations which do not depend on the size of the input i.e., O(6)
+    a. initiating the calldir dictionary: 1 operation
+    b. calculating maxvalue: 1 operation
+    c. calculating maxkey: 1 operation
+    d. printing the: 3 operations
+- Lower order terms can be disregarded
+
+TASK 3
+Part A has a worst-case time-complexity of O(n log n), where n = max(k, m)
+- The first loop (populating a list containing calls made by (080) area code) is said to run k times and the second loop (retrieving fixed line and mobile numbers) is said to run m times.
+- The first loop has a time-complexity of O(2n) whilst the second loop has a time-complexity of O(5n) as they have 2 and 5 operations, respectively. These can be simplified to O(n) as constants can be disregarded.
+- The first and second loops therefore has a worst-case time-complexity of O(n), where n = max(k, m)
+- Sorting the receivingcodes list using the sorted function has time-complexity of O(n log n)
+- 5 operations do not depend on the size of the input, evaluating to O(5) - lower order term is disregarded
+    a. bangalorecalls = []: 1 operation
+    b. receivingcodes = set(): 1 operation
+    c. print("The numbers called by people in Bangalore have codes:",*sorted(receivingcodes), sep = "\n"): 3 operations
+
+Part B has a worst-case time-complexity of O(n):
+- The loop counting the number of calls made to fixed lines also in Bangalore has time-complexity of O(2n), which can be simplified to O(n):
+    - There are 2 operations within the loop:
+        a. if '(080)' in row[1]: 1 operation
+        b. bangalorecallstobangalore += 1: 1 operation
+- 8 operations do not depend on the size of the input, evaluating to O(8 - lower order term is disregarded
+    a. bangalorecallstobangalore = 0: 1 operation
+    b. answer = bangalorecallstobangalore / len(bangalorecalls) * 100: 4 operations
+    c. answer = "{:.2f}".format(answer): 1 operation
+    d. print(answer, "percentage of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.") - 2 operations
+
+TASK 4
+The algorithm has a worst-case time complexity of O(n log n), where n = max(j, k, m)
+- Each of the 5 loops has 2 operations (constant 2 can be disregarded) leading to time-complexity O(n), where n = max(j, k, m)
+    - The first 2 loops (referencing calls) is said to run j times
+    - The next 2 loops (referencing texts) is said to run k times
+- Sorting the posstelemkt list has a time-complexity of O(n log n)
+- There are 7 operations that do not depend on the size of the input, evaluating to O(7) - lower order term is disregarded:
+    a. makecalls = (): 1 operation
+    b. receivecalls = (): 1 operation
+    c. senttexts = (): 1 operation
+    d. receivetexts = (): 1 operation
+    e. posstelemkt = makecalls - (receivecalls | senttexts | receivetexts): 1 operation
+    f. print("These numbers could be telemarketers:", *posstelemkt, sep="\n"): 2 operations

@@ -1,0 +1,58 @@
+TASK 0
+The algorithm has a worst-case time-complexity of O(1).
+
+The are a total of 9 operations which do not depend on the size of the input:
+- print("First record of texts,", texts[0][0], "texts", texts[0][1], "at time", texts[0][2]) contains 4 operations
+- (lastcall = len(calls)-1 # Calculate index for last item in calls) contains 1 operation.
+- print("Last record of calls,", calls[lastcall][0], "calls", calls[lastcall][1], "at time", calls[lastcall][2]) contains 4 operations
+
+O(9) can be simplified to O(1)
+
+TASK 1
+The algorithm has a worst-case time-complexity of O(n), where n = max(k, m)
+- The first loop (processing rows in the text dataset) is said to run k times and the second loop (processing rows in the calls dataset) is said to run m times.
+- Each loop consists of four operations, leading to O(4n) worst-case time-complexity for each loop.
+- Calculating the length of the list of unique phone numbers and printing the results has O(1) worst-case time-complexity, leading to O(2n + 1).
+- O(4n + 1) can be simplified to O(n).
+
+TASK 2
+The algorithm has a worst-case time-complexity of O(n):
+- Each loop is said to run n times, and four operations occur within each loop such that O(4n)
+- Calculating the maximum value, retrieving the phone number with the maximum value and printing results has O(1) time-complexity as these do not depend on the size of the input.
+- O(4n + 1) can be simplified to O(n)
+
+TASK 3
+Part A has a worst-case time-complexity of O(n log n), where n = max(k, m)
+- There are two operations that do not depend on the size of the input, which evaluate to O(2)
+    a. bangalorecalls = []
+    b. receivingcodes = []
+- The first loop (populating a list containing calls made by (080) area code) is said to run k times and the second loop (retrieving fixed line and mobile numbers) is said to run m times.
+- The first loop has a time-complexity of O(2n) whilst the second loop has a time-complexity of O(5n) as they have 2 and 5 operations, respectively. These can be simplified to O(n) as constants can be disregarded.
+- The first and second loops therefore has a worst-case time-complexity of O(n), where n = max(k, m)
+- Sorting the receivingcodes list using the sorted function has time-complexity of O(n log n)
+- The constant O(2) can be disregarded given they do not materially affect runtime relative to other parts of the algorithm
+
+Part B has a worst-case time-complexity of O(n):
+- There are 8 operations that do not depend on the size of the input:
+    a. bangalorecallstobangalore = [] - 1 operation
+    b. answer = len(bangalorecallstobangalore) / len(bangalorecalls) * 100 - 4 operations
+    c. answer = "{:.2f}".format(answer) - 1 operation
+    d. print(answer, "percentage of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.") - 2 operations
+- The loop (creating a list containing calls made to fixed lines also in bangalore) has three operations, leading to time-complexity of O(3n)
+- Overall this evaluates to O(3n + 4), which can be simplified to O(n)
+
+TASK 4
+The algorithm has a worst-case time complexity of O(n log n), where n = max(j, k, m)
+- There are 6 operations that do not depend on the size of the input, evaluating to O(6):
+    a. makecalls = []
+    b. receivecalls = []
+    c. senttexts = []
+    d. receivetexts = []
+    e. posstelemkt = []
+    f. print("These numbers could be telemarketers:", *posstelemkt, sep="\n")
+- Each of the 5 loops has 2 operations, evaluating to worst-case time-complexity O(n), where n = max(j, k, m)
+    - The first 2 loops (referencing calls) is said to run j times
+    - The next 2 loops (referencing texts) is said to run k times
+    - The final loop (referencing makecalls) is said to run m times
+- Sorting the posstelemkt list has a time-complexity of O(n log n)
+- Overall this evaluates to O(n log n + 6), where n = max(j, k, m). The 6 in this expression can be disregarded, leading to worst-case time complexity of O(n log n), where n = max(j, k, m)
